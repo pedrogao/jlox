@@ -6,7 +6,7 @@ import java.util.List;
 
 import static com.pedrogao.jlox.TokenType.*;
 
-class Parser {
+public class Parser {
     private static class ParseError extends RuntimeException {
     }
 

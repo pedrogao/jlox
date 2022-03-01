@@ -3,7 +3,7 @@ package com.pedrogao.jlox;
 import java.util.HashMap;
 import java.util.Map;
 
-class Environment {
+public class Environment {
     final Environment enclosing;
     private final Map<String, Object> values = new HashMap<>();
 

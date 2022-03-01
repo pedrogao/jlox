@@ -50,18 +50,22 @@ public class Lox {
     }
 
     private static void run(String source) {
+        // lexing 词法解析
         Scanner scanner = new Scanner(source);
         List<Token> tokens = scanner.scanTokens();
+
+        // parse 语法解析
         Parser parser = new Parser(tokens);
         var statements = parser.parse();
         if (hadError) return;
 
+        // resolve 语义解析
         Resolver resolver = new Resolver(interpreter);
         resolver.resolve(statements);
         // Stop if there was a resolution error.
         if (hadError) return;
 
-        interpreter.interpret(statements);
+        interpreter.interpret(statements); // interpret 解释执行
     }
 
     static void error(int line, String message) {
